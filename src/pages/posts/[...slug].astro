@@ -17,5 +17,8 @@ const { Content } = await post.render();
 
 <Layout title={`${post.data.title}`}>
   <h1>ニュース {post.data.title} {post.slug}</h1>
+  {post.data.createdAt}
+  {post.data.updatedAt}
+  {post.data.authorName}
   <Content />
 </Layout>

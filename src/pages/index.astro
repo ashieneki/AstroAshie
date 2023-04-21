@@ -1,8 +1,14 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const posts = await getCollection('posts');
 ---
 
 <Layout>
-  工事中っ！<br />
-  ここは専用のページを作る
+  <section>
+    工事中っ！<br />
+    ここは専用のページを作る
+  </section>
+  <section></section>
 </Layout>
