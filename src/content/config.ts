@@ -6,6 +6,13 @@ const postCollection = defineCollection({
   })
 })
 
+const pageCollection = defineCollection({
+  schema: z.object({
+    title: z.string()
+  })
+})
+
 export const collections = {
-  "posts": postCollection
+  "posts": postCollection,
+  "pages": pageCollection
 }
