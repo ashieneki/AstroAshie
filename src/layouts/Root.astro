@@ -1,12 +1,11 @@
 ---
+import "../styles/main.scss";
+
 export interface Props {
-  title?: string;
+  title: string;
 }
 
-const propTitle = Astro.props.title;
-const title = propTitle
-  ? `${propTitle} - 葦江音綺 Project`
-  : "葦江音綺 Project";
+const title = Astro.props.title;
 ---
 
 <html lang="ja">
@@ -17,6 +16,6 @@ const title = propTitle
     <title>{title}</title>
   </head>
   <body>
-    <h1>{title}</h1>
+    <slot />
   </body>
 </html>

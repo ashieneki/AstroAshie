@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;700&family=Stick&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+  font-family: 'IBM Plex Sans JP', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'IBM Plex Sans JP', sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  color: var(--darkgray-color);
+}
+h2 {
+  border-bottom: 2px solid var(--lightgray-color);
+}
+h3 {
+  border-left: 8px solid var(--lightgray-color);
+  padding-left: 8px;
+}
+
+h2, h3, h4, h5, h6 {
+  color: var(--primary-color);
+}
+
