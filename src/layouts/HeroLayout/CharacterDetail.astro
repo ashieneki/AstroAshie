@@ -1,0 +1,88 @@
+---
+---
+
+<section>
+  <div class="introduction">
+    <div class="header">
+      <div class="title">Ashie Neki</div>
+      <div class="subTitle">葦江音綺 とは？</div>
+    </div>
+    <div class="meta">
+      <p>
+        UTAU音源準備中
+      </p>
+      <table>
+        <tr>
+          <th>身長</th>
+          <td>165cm</td>
+        </tr>
+        <tr>
+          <th>体重</th>
+          <td>40%</td>
+        </tr>
+        <tr>
+          <th>誕生日</th>
+          <td>8月24日</td>
+        </tr>
+      </table>
+      <p>
+        すぐに人と打ち解けやすい性格。<br />
+        友達はまあまあいる。人間も人間以外も。<br />
+        贅肉が気になるお年頃。煙草は野菜で酒は燃料なのでカロリーゼロ。<br />
+        路地裏でみつけたネコちゃんと暮らしているらしい。
+      </p>
+    </div>
+  </div>
+  <div class="tachie">
+    tachie
+  </div>
+</section>
+
+<style lang="scss">
+  section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    padding: 20px 20%;
+
+    background-color: var(--darkgray-color);
+    color: var(--white-color);
+  }
+  .header {
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 3em;
+      font-weight: bold;
+    }
+    .subTitle {
+      margin-top: -1em;
+    }
+  }
+  .tachie {
+    text-align: right;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    text-align: left;
+
+    tr {
+      border-bottom: 1px solid var(--white-color);
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    th, td {
+      padding: 5px 0;
+      font-weight: normal;
+    }
+    
+    td {
+      font-weight: bold;
+    }
+  }
+</style>
