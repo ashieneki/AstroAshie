@@ -31,7 +31,7 @@ const { Content } = await post.render();
   <div class="meta">
     <h1>{post.data.title}</h1>
     <p>
-      {dayjs(post.data.publishedAt).format("YYYY年M月D日")}
+      {dayjs(post.data.createdAt).format("YYYY年M月D日")}
     </p>
   </div>
   <Content />
