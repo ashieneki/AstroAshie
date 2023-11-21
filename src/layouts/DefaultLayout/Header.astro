@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import LogotypeSVG from "../../assets/logotype.svg";
+import { getCollection } from "astro:content";
+
+const pages = await getCollection("pages", (p) => p.data.showMenu)
+const menuItems = [
+  {
+    title: 'お知らせ',
+    path: '/posts'
+  },
+  ...pages
+    .sort((a, b) => (a.data.menuOrder ?? 0) - (b.data.menuOrder ?? 9))
+    .map(p => ({
+      title: p.data.menuTitle ?? p.data.title,
+      path: `/${p.slug}`
+    }))
+]
+---
+
+<header>
+  <div class="brand">
+    <a href="/">
+      <Image class="logotype" src={LogotypeSVG} alt="葦江音綺ロゴタイプ" height={24}/>
+    </a>
+  </div>
+  <div class="menu">
+    {menuItems.map(i => <a href={i.path} class={new RegExp(`^${i.path}`).test(Astro.url.pathname) ? 'active' : ''}>
+      {i.title}
+    </a>)}
+  </div>
+</header>
+
+<style lang="scss">
+  header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    padding: 20px 20%;
+    background-color: var(--darkgray-color);
+    color: var(--white-color);
+
+    border-top: 4px solid var(--secondary-color);
+    
+    @media screen and (max-width: 840px) {
+      padding: 20px; 
+      grid-template-columns: auto;
+      grid-template-rows: auto auto;
+      gap: 20px;
+    }
+
+    font-size: 0;
+  }
+
+  .logotype {
+    display: inline;
+  }
+  .menu {
+    margin: 0;
+    padding: 0;
+    margin-bottom: -2px;
+    font-size: 1rem;
+
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px 20px;
+    flex-wrap: wrap;
+
+    a {
+      color: var(--white-color);
+      text-decoration: none;
+      padding-bottom: 2px;
+
+      &.active {
+        padding: 0;
+        font-weight: bold;
+        border-bottom: 2px solid var(--white-color);
+      }
+    }
+  }
+</style>

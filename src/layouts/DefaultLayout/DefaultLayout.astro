@@ -1,0 +1,41 @@
+---
+import Root from "../Root.astro";
+import Header from "./Header.astro";
+import Footer from "./Footer.astro";
+
+import "../../styles/main.scss";
+
+export interface Props {
+  title?: string;
+}
+
+const propTitle = Astro.props.title;
+const title = propTitle
+  ? `${propTitle} - 葦江音綺 Project`
+  : "葦江音綺 Project";
+---
+
+<Root title={title}>
+  <div class="container">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </div>
+</Root>
+
+<style lang="scss">
+  .container {
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  main {
+    padding: 40px 20%;
+
+    @media screen and (max-width: 840px) {
+      padding: 20px; 
+    }
+  }
+</style>
