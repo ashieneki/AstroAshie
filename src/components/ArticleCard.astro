@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 export interface Props {
   title: string;
   slug: string;
-  publishedAt: Date;
+  createdAt: Date;
 }
 
 const getAddedDayDate = (date: Date, addDay: number): Date => {
@@ -15,8 +15,8 @@ const getAddedDayDate = (date: Date, addDay: number): Date => {
 
 <article>
   <div class="dateHolder">
-    <div class="date">{dayjs(Astro.props.publishedAt).format("YYYY年M月D日")}</div>
-    {getAddedDayDate(Astro.props.publishedAt, 30) > new Date() && <div class="newBadge"><span class="newLabel">NEW!</span></div>}
+    <div class="date">{dayjs(Astro.props.createdAt).format("YYYY年M月D日")}</div>
+    {getAddedDayDate(Astro.props.createdAt, 30) > new Date() && <div class="newBadge"><span class="newLabel">NEW!</span></div>}
   </div>
   <div class="title"><a href={`/posts/${Astro.props.slug}`}>{Astro.props.title}</a></div>
 </article>
