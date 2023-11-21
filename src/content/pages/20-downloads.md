@@ -1,5 +1,9 @@
 ---
-title: 'ダウンロード'
+slug: downloads
+title: ダウンロード
+
+showMenu: true
+menuOrder: 20
 ---
 
 キャラクターガイドライン

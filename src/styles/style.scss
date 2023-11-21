@@ -16,6 +16,11 @@ body {
   font-family: 'IBM Plex Sans JP', sans-serif;
 }
 
+a {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
 h1, h2, h3, h4, h5, h6, p, table {
   margin: 0;
   margin-bottom: 20px;
@@ -64,11 +69,47 @@ h2, h3, h4, h5, h6 {
   background-color: var(--darkgray-color);
   color: var(--white-color);
 
+  position: relative;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: inline-block;
+    width: 0%;
+    height: 100%;
+    content: '';
+    background-color: #ffffff80;
+    opacity: 0;
+
+    transition: ease 0.4s,
+                opacity 0.2s ease-in;
+  }
+
+  &:hover {
+    &::before {
+      width: 100%;
+      opacity: 1;
+    }
+  }
+
   font-weight: bold;
 
   &-outlined {
     border: 2px solid var(--darkgray-color);
     background-color: var(--white-color);
     color: var(--darkgray-color);
+  }
+
+  &-secondary {
+    border: 2px solid var(--white-color);
+    background-color: var(--white-color);
+    color: var(--secondary-color);
+  }
+  &-secondary-outlined {
+    border: 2px solid var(--white-color);
+    background-color: var(--secondary-color);
+    color: var(--white-color);
   }
 }

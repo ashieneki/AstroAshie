@@ -1,0 +1,43 @@
+---
+import Title from "../../Title.astro";
+import HeroContainer from "../HeroContainer.astro";
+import SongCard from "./SongCard.astro";
+import "../../../styles/mixin.scss";
+import { getCollection } from "astro:content";
+
+const songs = await getCollection("songs", (s) => !s.data.draft)
+
+const songItems = songs
+  .sort((a, b) => a.data.order - b.data.order)
+  .map(s => ({
+    videoId: s.data.videoId,
+    title: s.data.title,
+    artist: s.data.artist
+  }))
+---
+
+<section>
+  <HeroContainer>
+    <Title title="Demo songs" subTitle="公式デモソング一覧" />
+    <div class="cardRack">
+      {songItems.map(s => <SongCard videoId={s.videoId} title={s.title} artist={s.artist}/>)}
+    </div>
+    {!songs.length && <p>
+      現在準備中です！
+    </p>}
+  </HeroContainer>
+</section>
+
+<style lang="scss">
+  section {
+  }
+  .cardRack {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+
+    @media screen and (max-width: 840px) {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

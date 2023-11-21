@@ -1,5 +1,10 @@
 ---
-title: 'キャラクター使用ガイドライン'
+slug: guideline
+title: キャラクター使用ガイドライン
+
+showMenu: true
+menuTitle: ガイドライン
+menuOrder: 15
 ---
 
 - 本ガイドラインは、葦江音綺Project(以下「当Project」とします)が展開するキャラクター全てに関するガイドライン(以下「本ガイドライン」とします)になります。
