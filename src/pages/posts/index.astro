@@ -4,7 +4,7 @@ import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import ArticleCard from "../../components/ArticleCard.astro";
 
-const posts = await getCollection("posts");
+const posts = await getCollection("posts", (p) => !p.data.draft);
 const sortedPosts = posts.sort(
   (a, b) => b.data.createdAt.getTime() - a.data.createdAt.getTime()
 )
@@ -21,6 +21,7 @@ const sortedPosts = posts.sort(
   <h1>お知らせ</h1>
 
   <section>
+    {!sortedPosts.length && <p>現在お知らせはありません！</p>}
     {sortedPosts.map(p => <ArticleCard slug={p.slug} title={p.data.title} createdAt={p.data.createdAt} />)}
   </section>
 

@@ -4,7 +4,7 @@ import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 
 export const getStaticPaths = async () => {
-  const pages = await getCollection("pages")
+  const pages = await getCollection("pages", (p) => !p.data.draft)
   return pages.map((page) => ({
     params: { slug: page.slug },
     props: { page }
