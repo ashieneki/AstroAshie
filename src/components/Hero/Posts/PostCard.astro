@@ -1,0 +1,34 @@
+---
+import dayjs from "dayjs";
+import DateLabel from "../../Labels/DateLabel.astro";
+export interface Props {
+  slug: string;
+  title: string;
+  createdAt: Date;
+}
+---
+
+<article>
+  <div class="meta">
+    <DateLabel date={Astro.props.createdAt} isDisplayNewLabel={true} />
+  </div>
+  <div class="title">
+    <a href={`/posts/${Astro.props.slug}`}>{Astro.props.title}</a>
+  </div>
+</article>
+
+<style lang="scss">
+  article {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-right: 16px solid var(--primary-color);
+  }
+
+  .title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  .meta {
+
+  }
+</style>

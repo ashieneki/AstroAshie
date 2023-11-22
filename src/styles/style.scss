@@ -47,6 +47,34 @@ h2, h3, h4, h5, h6 {
   color: var(--primary-color);
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  text-align: left;
+
+  thead,
+  tbody {
+    border-bottom: 2px solid var(--darkgray-color);
+  }
+
+  tr {
+    border-bottom: 1px solid var(--white-color);
+    &:last-child {
+      border-bottom: none;
+    }
+
+    background-color: var(--white-color);
+    &:nth-child(2n) {
+      background-color: #f0f0f0;
+    }
+  }
+
+  th, td {
+    padding: 10px;
+  }
+}
+
 .btnRack {
   display: flex;
   gap: 10px;
@@ -96,16 +124,37 @@ h2, h3, h4, h5, h6 {
 
   &-outlined {
     border: 2px solid var(--darkgray-color);
-    background-color: var(--white-color);
+    background-color: transparent;
     color: var(--darkgray-color);
   }
 
+  &-primary {
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  }
+  &-primary-outlined {
+    border: 2px solid var(--primary-color);
+    background-color: transparent;
+    color: var(--primary-color);
+  }
+  &-primary-light-outlined {
+    border: 2px solid var(--white-color);
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  }
+
   &-secondary {
+    border: 2px solid var(--secondary-color);
+    background-color: var(--secondary-color);
+    color: var(--white-color);
+  }
+  &-secondary-light {
     border: 2px solid var(--white-color);
     background-color: var(--white-color);
     color: var(--secondary-color);
   }
-  &-secondary-outlined {
+  &-secondary-light-outlined {
     border: 2px solid var(--white-color);
     background-color: var(--secondary-color);
     color: var(--white-color);

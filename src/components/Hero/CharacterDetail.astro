@@ -10,28 +10,33 @@ import HeroContainer from "./HeroContainer.astro";
         <Title title="Ashie Neki" subTitle="葦江音綺とは？" />
         <div class="meta">
           <p>
-            UTAU音源準備中
+            「葦江音綺」は、～～～～が特徴な合成音声ライブラリです。
           </p>
-          <table>
-            <tr>
-              <th>身長</th>
-              <td>165cm</td>
-            </tr>
-            <tr>
-              <th>体重</th>
-              <td>40%</td>
-            </tr>
-            <tr>
-              <th>誕生日</th>
-              <td>8月24日</td>
-            </tr>
-          </table>
           <p>
             すぐに人と打ち解けやすい性格。<br />
             友達はまあまあいる。人間も人間以外も。<br />
             贅肉が気になるお年頃。煙草は野菜で酒は燃料なのでカロリーゼロ。<br />
             路地裏でみつけたネコちゃんと暮らしているらしい。
           </p>
+          <table>
+            <tbody>
+              <tr>
+                <th>身長</th>
+                <td>165cm</td>
+              </tr>
+              <tr>
+                <th>体重</th>
+                <td>40%</td>
+              </tr>
+              <tr>
+                <th>誕生日</th>
+                <td>8月24日</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="btnRack">
+            <a href="/character" class="btn btn-primary-outlined">路地裏を覗く</a>
+          </div>
         </div>
       </div>
       <div class="tachie">
@@ -56,30 +61,23 @@ import HeroContainer from "./HeroContainer.astro";
     }
   }
 
-  .tachie {
-    text-align: right;
-  }
-
   table {
-    width: 100%;
-    border-collapse: collapse;
-
-    text-align: left;
-
-    tr {
-      border-bottom: 1px solid var(--white-color);
-      &:last-child {
-        border-bottom: none;
-      }
+    tbody {
+      border-top: 2px solid var(--white-color);
+      border-bottom: 2px solid var(--white-color);
     }
-
-    th, td {
-      padding: 5px 0;
+    tr {
+      background-color: transparent;
+    }
+    th {
       font-weight: normal;
     }
-    
     td {
       font-weight: bold;
     }
+  }
+
+  .tachie {
+    text-align: right;
   }
 </style>
