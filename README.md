@@ -1,1 +1,5 @@
-# AstroAshie: 葦江音綺 Project 公式サイト
+# AstroAshie
+
+Content: [AshieContent](https://github.com/ashieneki/AshieContent)
+
+Production: https://ashieneki.net
