@@ -12,7 +12,7 @@ const sortedPosts = posts
 
 <section>
   <HeroContainer>
-    <Title title="Informations" subTitle="お知らせ" />
+    <Title title="News" subTitle="お知らせ" />
     <div class="cardRack">
       {sortedPosts.map(p => <PostCard slug={p.slug} title={p.data.title} createdAt={p.data.createdAt} />)}
     </div>
