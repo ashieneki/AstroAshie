@@ -1,19 +1,36 @@
 ---
 import "../styles/main.scss";
+import siteConfig from "../siteConfig";
 
 export interface Props {
-  title: string;
+  title?: string;
+  description?: string;
 }
 
-const title = Astro.props.title;
+const propTitle = Astro.props.title;
+const propDescription = Astro.props.description ?? "葦江綺麗 Project 公式サイト";
+const title = propTitle
+  ? `${propTitle} - 葦江音綺 Project`
+  : "葦江音綺 Project";
 ---
 
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
+    {Astro.generator}
+    <meta name="generator" content="Nectarition Sakura v5.0.0-ASHIE" />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP:wght@400;700&family=Stick&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content={`${siteConfig.siteUrl}${Astro.url.pathname}`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="葦江音綺 Project" />
+    <meta property="og:title" content={propTitle} />
+    <meta property="og:description" content={propDescription} />
+    <meta property="og:image" content={`${siteConfig.siteUrl}/card.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={propTitle} />
+    <meta name="twitter:site" content="@AshieNeki" />
+    <meta name="twitter:creator" content="@AshieNeki" />
     <title>{title}</title>
   </head>
   <body>
