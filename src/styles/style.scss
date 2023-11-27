@@ -143,6 +143,11 @@ table {
     background-color: var(--primary-color);
     color: var(--white-color);
   }
+  &-primary-light {
+    border: 2px solid var(--white-color);
+    background-color: var(--white-color);
+    color: var(--primary-color);
+  }
   &-primary-outlined {
     border: 2px solid var(--primary-color);
     background-color: transparent;
