@@ -1,0 +1,24 @@
+---
+import Title from "../Title.astro";
+import HeroContainer from "./HeroContainer.astro";
+---
+
+<section>
+  <HeroContainer>
+    <Title title="Izakaya" subTitle="葦江亭へようこそ。" />
+    <p>
+      葦江音綺公式BOOTHショップの「葦江亭」では、音源のダウンロードやグッズの購入ができます。<br />
+      宴会はもちろん、お一人様でのご利用も大歓迎です。
+    </p>
+    <div class="btnRack">
+      <a class="btn btn-primary-light-outlined" href="https://ashieneki.booth.pm">暖簾をくぐる</a>
+    </div>
+  </HeroContainer>
+</section>
+
+<style lang="scss">
+  section {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+  }
+</style>
