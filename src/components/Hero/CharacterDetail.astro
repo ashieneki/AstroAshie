@@ -9,14 +9,13 @@ import HeroContainer from "./HeroContainer.astro";
       <div class="introduction">
         <Title title="Ashie Neki" subTitle="葦江音綺とは？" />
         <div class="meta">
-          <p>
-            「葦江音綺」は、～～～～が特徴な合成音声ライブラリです。
-          </p>
+          <p>「葦江音綺」は、～～～～が特徴な合成音声ライブラリです。</p>
           <p>
             すぐに人と打ち解けやすい性格。<br />
-            友達はまあまあいる。人間も人間以外も。<br />
-            贅肉が気になるお年頃。煙草は野菜で酒は燃料なのでカロリーゼロ。<br />
-            路地裏でみつけたネコちゃんと暮らしているらしい。
+             友達はまあまあいる。人間も人間以外も。<br />
+             贅肉が気になるお年頃。煙草は野菜で酒は燃料なのでカロリーゼロ。<br
+            />
+             路地裏でみつけたネコちゃんと暮らしているらしい。
           </p>
           <table>
             <tbody>
@@ -35,12 +34,11 @@ import HeroContainer from "./HeroContainer.astro";
             </tbody>
           </table>
           <div class="btnRack">
-            <a href="/character" class="btn btn-primary-outlined">路地裏を覗く</a>
+            <a href="/character" class="btn btn-primary-outlined"
+              >路地裏を覗く</a
+            >
           </div>
         </div>
-      </div>
-      <div class="tachie">
-        tachie
       </div>
     </section>
   </HeroContainer>
@@ -51,11 +49,11 @@ import HeroContainer from "./HeroContainer.astro";
     background-color: var(--darkgray-color);
     color: var(--white-color);
   }
-  
+
   section {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    
+    grid-template-columns: 75% 1fr;
+
     @media screen and (max-width: 840px) {
       grid-template-columns: 1fr;
     }

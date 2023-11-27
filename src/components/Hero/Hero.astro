@@ -1,9 +1,178 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import LogotypeSVG from "../../assets/logotype.svg";
+
+const pages = await getCollection("pages", (p) => p.data.showMenu);
+const menuItems = [
+  {
+    title: "お知らせ",
+    path: "/posts",
+  },
+  ...pages
+    .sort((a, b) => (a.data.menuOrder ?? 0) - (b.data.menuOrder ?? 9))
+    .map((p) => ({
+      title: p.data.menuTitle ?? p.data.title,
+      path: `/${p.slug}`,
+    })),
+];
+---
+
 <section>
-  葦江音綺
+  <div class="wrap">
+    <div class="brand">
+      <div class="copy">
+        ここで一杯、駆けつけ三杯、<br />帰る頃にはもう一軒。
+      </div>
+      <div class="logotype">
+        <Image
+          class="logotypeImage"
+          src={LogotypeSVG}
+          alt="葦江音綺ロゴタイプ"
+          width={256}
+        />
+      </div>
+      <div class="menu">
+        <div class="menuRack">
+          {
+            menuItems.map((i) => (
+              <a class="menuItem" href={i.path}>
+                {i.title}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+    <div class="tachie">
+      <div class="tachieWrap">
+        <img class="tachieImage" src="/tachie/ashie1.png" />
+      </div>
+    </div>
+  </div>
 </section>
 
 <style lang="scss">
   section {
+    color: var(--white-color);
+    background-color: var(--white-color);
     height: 100vh;
+    padding: 50px;
+
+    @media screen and (max-width: 840px) {
+      overflow: hidden;
+      padding: 20px;
+    }
+  }
+
+  .wrap {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 50%;
+    padding: 50px;
+    border-radius: 50px;
+
+    @media screen and (max-width: 840px) {
+      padding: 20px;
+      border-radius: 20px;
+      grid-template-columns: 1fr;
+    }
+
+    background-image: url("/brand/hero-bg.jpg");
+    background-color: var(--darkgray-color);
+    background-size: cover;
+    background-position: center;
+
+    position: relative;
+
+    .brand {
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+      padding-left: 10%;
+
+      display: flex;
+      flex-flow: column;
+      justify-content: flex-end;
+      gap: 10px;
+      z-index: 1;
+
+      @media screen and (max-width: 840px) {
+        padding: 0;
+      }
+
+      .logotype,
+      .copy {
+        background-color: #000000c0;
+        align-self: flex-start;
+        padding: 10px;
+
+        @media screen and (max-width: 840px) {
+          align-self: unset;
+          text-align: center;
+        }
+      }
+
+      .copy {
+        background-color: var(--darkgray-color);
+        color: var(--white-color);
+      }
+
+      .logotype {
+        background-color: var(--secondary-color);
+      }
+
+      .menuRack {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+
+        .menuItem {
+          padding: 10px;
+          text-decoration: none;
+          color: var(--white-color);
+          background-color: var(--primary-color);
+        }
+
+        @media screen and (max-width: 840px) {
+          justify-content: center;
+        }
+      }
+    }
+
+    .tachie {
+      width: 100%;
+      grid-column: 2 / 3;
+
+      z-index: 0;
+      position: absolute;
+
+      @media screen and (max-width: 840px) {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        position: absolute;
+      }
+
+      .tachieWrap {
+        width: 100%;
+        text-align: right;
+
+        transition: 1s ease-in-out;
+        transform: translate(-10%, 0);
+
+        @media screen and (max-width: 840px) {
+          bottom: -256px;
+          right: 0;
+          transform: translate(0, 0);
+        }
+
+        .tachieImage {
+          min-width: 208px;
+          max-width: 100%;
+          min-height: 512px;
+          max-height: 1000px;
+        }
+      }
+    }
   }
 </style>
