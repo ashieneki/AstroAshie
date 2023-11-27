@@ -10,8 +10,8 @@ export interface Props {
 const propTitle = Astro.props.title;
 const propDescription = Astro.props.description ?? "葦江綺麗 Project 公式サイト";
 const title = propTitle
-  ? `${propTitle} - 葦江音綺 Project`
-  : "葦江音綺 Project";
+  ? `${propTitle} - 葦江音綺Project`
+  : "葦江音綺Project";
 ---
 
 <html lang="ja">
@@ -23,7 +23,7 @@ const title = propTitle
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:url" content={`${siteConfig.siteUrl}${Astro.url.pathname}`} />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="葦江音綺 Project" />
+    <meta property="og:site_name" content="葦江音綺Project" />
     <meta property="og:title" content={propTitle} />
     <meta property="og:description" content={propDescription} />
     <meta property="og:image" content={`${siteConfig.siteUrl}/card.jpg`} />
