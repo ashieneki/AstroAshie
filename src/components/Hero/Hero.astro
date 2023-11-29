@@ -53,6 +53,27 @@ const menuItems = [
 </section>
 
 <style lang="scss">
+  @keyframes SlideIn-UpToDown {
+    from {
+      opacity: 0;
+      transform: translate(0, -50px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+  @keyframes SlideIn-RightToLeft {
+    from {
+      opacity: 0;
+      transform: translate(-50px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+  }
+
   section {
     color: var(--white-color);
     background-color: var(--white-color);
@@ -114,11 +135,16 @@ const menuItems = [
       }
 
       .copy {
+        opacity: 0;
+        animation: SlideIn-UpToDown 1s ease forwards;
+
         background-color: var(--darkgray-color);
         color: var(--white-color);
       }
 
       .logotype {
+        opacity: 0;
+        animation: SlideIn-UpToDown 1s ease 0.25s forwards;
         background-color: var(--secondary-color);
       }
 
@@ -126,6 +152,9 @@ const menuItems = [
         display: flex;
         gap: 10px;
         flex-wrap: wrap;
+
+        opacity: 0;
+        animation: SlideIn-UpToDown 1s ease 0.5s forwards;
 
         .menuItem {
           padding: 10px;
@@ -167,6 +196,9 @@ const menuItems = [
         }
 
         .tachieImage {
+          opacity: 0;
+          animation: SlideIn-RightToLeft 2s ease 0.25s forwards;
+
           min-width: 208px;
           max-width: 100%;
           min-height: 512px;
