@@ -1,5 +1,5 @@
 export const siteConfig = {
-  siteUrl: "https://draft.ashieneki.net"
+  siteUrl: "https://ashieneki.net"
 }
 
 export default siteConfig;
