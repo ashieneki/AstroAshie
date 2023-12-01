@@ -5,10 +5,10 @@ import { getCollection } from "astro:content";
 
 const pages = await getCollection("pages", (p) => p.data.showMenu)
 const menuItems = [
-  // {
-  //   title: 'お知らせ',
-  //   path: '/posts'
-  // },
+  {
+    title: 'お知らせ',
+    path: '/posts'
+  },
   ...pages
     .sort((a, b) => (a.data.menuOrder ?? 0) - (b.data.menuOrder ?? 9))
     .map(p => ({

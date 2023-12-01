@@ -5,10 +5,10 @@ import LogotypeSVG from "../../assets/logotype.svg";
 
 const pages = await getCollection("pages", (p) => p.data.showMenu);
 const menuItems = [
-  // {
-  //   title: "お知らせ",
-  //   path: "/posts",
-  // },
+  {
+    title: "お知らせ",
+    path: "/posts",
+  },
   ...pages
     .sort((a, b) => (a.data.menuOrder ?? 0) - (b.data.menuOrder ?? 9))
     .map((p) => ({
@@ -22,7 +22,7 @@ const menuItems = [
   <div class="wrap">
     <div class="brand">
       <div class="copy">
-        ここで一杯、駆けつけ三杯、<br />帰る頃にはもう一軒。
+        音声合成キャラクタープロジェクト
       </div>
       <div class="logotype">
         <Image
