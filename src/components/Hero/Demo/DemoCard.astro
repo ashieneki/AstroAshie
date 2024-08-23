@@ -3,6 +3,7 @@ export interface Props {
   videoId: string;
   title: string;
   artist: string;
+  type: string;
 }
 ---
 
@@ -11,7 +12,15 @@ export interface Props {
     <script type="application/javascript" src={`https://embed.nicovideo.jp/watch/${Astro.props.videoId}/script`}></script><noscript><a href="https://www.nicovideo.jp/watch/sm42365284">【イベント告知】第二回小樽潮風高校文化祭を開催します！ / #しおばな祭【TOKYO6】</a></noscript>
   </div>
   <div class="labelRack">
-    <span class="label">UTAU単独音ライブラリ</span>
+    <span class={`label label_${Astro.props.type}`}>
+      {
+        Astro.props.type === 'utau-tandoku'
+        ? 'UTAU単独音ライブラリ'
+          : Astro.props.type === 'mycoeiroink'
+          ? 'MYCOEIROINK'
+          : Astro.props.type
+      }
+      </span>
   </div>
   <div class="title">{Astro.props.title}</div>
   <div class="artist">{Astro.props.artist}</div>
@@ -31,6 +40,14 @@ export interface Props {
     background-color: var(--primary-color);
     color: var(--white-color);
     font-size: 0.8em;
+
+    &_utau-tandoku {
+      background-color: var(--primary-color);
+    }
+
+    &_mycoeiroink {
+      background-color: var(--secondary-color);
+    }
   }
   .title {
     font-size: 1.25em;

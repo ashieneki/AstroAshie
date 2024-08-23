@@ -18,18 +18,19 @@ const pageCollection = defineCollection({
   })
 })
 
-const songCollection = defineCollection({
+const demoCollection = defineCollection({
   schema: z.object({
     draft: z.boolean().optional(),
     title: z.string(),
     artist: z.string(),
     videoId: z.string(),
-    order: z.number()
+    order: z.number(),
+    type: z.enum(['utau-tandoku', 'mycoeiroink'])
   })
 })
 
 export const collections = {
   "posts": postCollection,
   "pages": pageCollection,
-  "songs": songCollection
+  "demos": demoCollection
 }

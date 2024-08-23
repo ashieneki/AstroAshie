@@ -1,14 +1,14 @@
 ---
 import Title from "../../Title.astro";
 import HeroContainer from "../HeroContainer.astro";
-import SongCard from "./SongCard.astro";
+import DemoCard from "./DemoCard.astro";
 import "../../../styles/mixin.scss";
 import { getCollection } from "astro:content";
 
-const songs = await getCollection("songs", (s) => !s.data.draft)
+const demos = await getCollection("demos", (s) => !s.data.draft)
 
-const songItems = songs
-  .sort((a, b) => a.data.order - b.data.order)
+const demoItems = demos
+  .sort((a, b) => b.data.order - a.data.order)
   .map(s => ({
     videoId: s.data.videoId,
     title: s.data.title,
@@ -18,11 +18,11 @@ const songItems = songs
 
 <section>
   <HeroContainer>
-    <Title title="Demo songs" subTitle="公式デモソング一覧" />
+    <Title title="Demos" subTitle="公式デモ" />
     <div class="cardRack">
-      {songItems.map(s => <SongCard videoId={s.videoId} title={s.title} artist={s.artist}/>)}
+      {demoItems.map(s => <DemoCard videoId={s.videoId} title={s.title} artist={s.artist}/>)}
     </div>
-    {!songs.length && <p>
+    {!demos.length && <p>
       現在準備中です！
     </p>}
   </HeroContainer>
