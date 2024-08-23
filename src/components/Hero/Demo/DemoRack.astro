@@ -20,7 +20,13 @@ const demoItems = demos
   <HeroContainer>
     <Title title="Demos" subTitle="公式デモ" />
     <div class="cardRack">
-      {demoItems.map(s => <DemoCard videoId={s.videoId} title={s.title} artist={s.artist}/>)}
+      {
+        demoItems.map(s => <DemoCard
+        videoId={s.videoId}
+        title={s.title}
+        artist={s.artist}
+        type={s.type} />)
+      }
     </div>
     {!demos.length && <p>
       現在準備中です！
